@@ -1,24 +1,25 @@
 import java.util.Scanner;
 
-public class Calculator  {
-    static String inputInfixExpression;
-
+public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the expression: ");
-        inputInfixExpression = scanner.nextLine();
+        System.out.print("Enter a mathematical expression: ");
+        String infixExpression = scanner.nextLine();
 
         try {
-            String postfixExpression = Postfix.convert(inputInfixExpression);
-            double result = Postfix.evaluate(postfixExpression);
+            Postfix postfix = new Postfix();
 
+            // Convert infix to postfix
+            String postfixExpression = postfix.convertToPostfix(infixExpression);
+            System.out.println("Postfix Notation: " + postfixExpression);
+
+            // Evaluate the postfix expression
+            double result = postfix.evaluatePostfix(postfixExpression);
             System.out.println("Result: " + result);
         } catch (Exception e) {
-            System.out.println("Error occured: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         } finally {
             scanner.close();
         }
     }
-
-
 }

@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 public class Postfix {
-    public static String convertToPostfix (String infixExpression) throws Exception {
+    public static String convertToPostfix(String infixExpression) throws Exception {
         Stack<Character> operatorStack = new Stack<>();
         String postfix = "";
         char[] tokens = infixExpression.replaceAll("\\s+", "").toCharArray(); // Remove spaces
@@ -85,7 +85,16 @@ public class Postfix {
     }
 
     // Check if a character is an operator
-    private boolean isOperator(char c) {
+    private static boolean isOperator(char c) {
         return c == '+' || c == '-' || c == '*' || c == '/';
+    }
+
+    // Define operator precedence
+    private static int precedence(char op) {
+        switch (op) {
+            case '+': case '-': return 1;
+            case '*': case '/': return 2;
+            default: return 0;
+        }
     }
 }
