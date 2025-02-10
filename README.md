@@ -44,7 +44,7 @@ Example:
 Input:  3 + 5 * 2
 Postfix Notation:  3 5 2 * +
 
-Step 3: Evaluate Postfix Expression
+Step 3: Evaluate Postfix Expression 
 
 The Postfix class evaluates the postfix expression using a stack.
 
