@@ -84,4 +84,8 @@ public class Postfix {
         }
     }
 
+    // Check if a character is an operator
+    private boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/';
+    }
 }
